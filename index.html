@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+	 	<meta charset='UTF-8'/>
+	 	<link rel='stylesheet' href='style.css'/>
+	 </head>	 
+<body>
+<center><h1>Vigenere Cipher</h1></center>
+		
+<p>Input:</p>	
+<input id='insert' class='inputval' type='text' placeholder='insert plainText. . .' /><br><br/>
+<input id="insert-1" class='inputval' type='text'  placeholder='insert keyword. . .' />
+&nbsp;&nbsp;
+<select onchange="vigenere(document.getElementById('insert-1').value,document.getElementById('insert').value,this.value);">
+	<option value="sel">--select--</option>
+	<option value="enc">Encrypt</option>
+	<option value="dec">Decrypt</option>
+</select>
+<br/><br/>
+<p>result:</p>
+<p id="result"></p>
+<script src='vigenere-Cipher.js'></script>
+</body>
+</html>
