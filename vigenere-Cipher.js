@@ -14,7 +14,7 @@ cipher = {
 		 init.forEach(function(a,k){
 			(alpha.indexOf(init[k]) + init[k+1] >= alpha.length) ? 
 				res.push(alpha[((alpha.indexOf(init[k])+init[k+1])-alpha.length)]) : false
-			alpha[alpha.indexOf(init[k])+init[k+1]] == undefined ?
+			alpha[alpha.indexOf(init[k])+init[k+1]] === undefined ?
 			false:res.push(alpha[alpha.indexOf(init[k])+init[k+1]])
 	})},
 
@@ -23,7 +23,7 @@ cipher = {
 		init.forEach(function(a,k){
 			(alpha.indexOf(init[k]) - init[k+1] <= alpha.length) ? 
 				res.push(alpha[((alpha.indexOf(init[k])-init[k+1])+alpha.length)]) : false
-			alpha[alpha.indexOf(init[k])-init[k+1]] == undefined ?
+			alpha[alpha.indexOf(init[k])-init[k+1]] === undefined ?
 			false:res.push(alpha[alpha.indexOf(init[k])-init[k+1]])
 	})}	
 }
