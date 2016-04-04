@@ -8,25 +8,28 @@ var alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 	
 // check if there is non-alpha characters. . .
 if(ptr.test(key) && ptr.test(msg)){
-cipher = {
-	// @encrypt the plain text. . .
-	enc:function (){
+
+function Cipher(enc){
+	// choosing the encrypt or the decrypt methode. . .
+	return (enc === "dec") ? this.dec() : (enc === "enc") ?  this.enc():false 
+}
+
+Cipher.prototype.enc = function (){
+
 		 init.forEach(function(a,k){
 			(alpha.indexOf(init[k]) + init[k+1] >= alpha.length) ? 
 				res.push(alpha[((alpha.indexOf(init[k])+init[k+1])-alpha.length)]) : false
 			alpha[alpha.indexOf(init[k])+init[k+1]] === undefined ?
 			false:res.push(alpha[alpha.indexOf(init[k])+init[k+1]])
-	})},
+})};
+Cipher.prototype.dec = function (){
 
-	// @decrypt the cipher text. . .	
-	dec:function (){
 		init.forEach(function(a,k){
 			(alpha.indexOf(init[k]) - init[k+1] <= alpha.length) ? 
 				res.push(alpha[((alpha.indexOf(init[k])-init[k+1])+alpha.length)]) : false
 			alpha[alpha.indexOf(init[k])-init[k+1]] === undefined ?
 			false:res.push(alpha[alpha.indexOf(init[k])-init[k+1]])
-	})}	
-}
+})};
 
 msg.toUpperCase().split('').forEach(function(a,i){
 		(j >= key.toUpperCase().length) ? j = 0 : false
@@ -36,11 +39,8 @@ msg.toUpperCase().split('').forEach(function(a,i){
 
 });
 
-// choosing the encrypt or the decrypt function. . .
-(type === "dec") ? cipher.dec() : (type === "enc") ?  cipher.enc():false
-	
+	new Cipher(type)
 	return document.getElementById("result").textContent = res.join("")
-
 	// clean all the result to start again. . .
 		 	   init = []; 
 			   res = [];
