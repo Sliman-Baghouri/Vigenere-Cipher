@@ -1,6 +1,5 @@
 function vigenere(key,msg,type){
 var alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-	cipher,
 	init = [],
 	res = [],
 	j=0,
@@ -38,13 +37,12 @@ msg.toUpperCase().split('').forEach(function(a,i){
 		j+=1
 
 });
-
 	new Cipher(type)
 	return document.getElementById("result").textContent = res.join("")
 	// clean all the result to start again. . .
-		 	   init = []; 
-			   res = [];
-	}else{
+	init = []; 
+	res = [];
+        }else{
 		throw new Error("Invalid input");
     }			
 }
